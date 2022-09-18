@@ -16,18 +16,39 @@ Coded by Asanka Akash Sovis
 // Defining global variables
 int maxIter = 100; // Maximum number of iterations
 float[] range = {-1.5, 1.5}; // Range to consider
+float[][] cArray = { // List of known Julia set values (Reference: http://paulbourke.net/fractals/juliaset/)
+  {0, 0.81}, 
+  {0.37, 0.1}, 
+  {0.355, 0.355}, 
+  {-0.54, 0.54}, 
+  {-0.4, -0.59}, 
+  {0.34, -0.05}, 
+  {0, 0.8}, 
+  {0.37, 0.1}, 
+  {-0.54, 0.54}, 
+  {-0.4, -0.59}, 
+  {0.355534, -0.337292}, 
+  {-0.202420806884766, 0.39527333577474}, 
+  {-1.34882125854492, -0.454237874348958}
+};
 float[] C = {0.37, 0.1};
+
+int i = 0;
 
 void setup() {
   size(1000, 800); // Defining the size of the canvas
   background(0); // Set the background to black
   colorMode(HSB); // Change the colour mode to HSB
+  textSize(10);
+  println("Starting | " + (cArray.length - i) + " of " + cArray.length + " left...");
 }
 
 void draw() {
   // Mandelbrot set is made up of both real and imaginary values
   // So we must do the calculation for both imaginary and real components
   // separately. So we define a and b to be the real and imaginary numbers
+  C = cArray[i];
+  
   for (int x = 0; x < width; x++) {
     for (int y = 0; y < height; y++) {
       // Implementing the Mandelbrot set for each point------------------
@@ -80,8 +101,17 @@ void draw() {
     }
   }
   
-  saveFrame("Output\\julia_set.png"); // Saves the current frame. Comment if you don't need
+  fill(0, 0, 99);
+  text("C = " + C[0] + " + " + C[1] + "i", 10, 20);
+  text("@AsankaSovis", 10, 30);
   
+  saveFrame("Output\\julia_set-" + i + ".png"); // Saves the current frame. Comment if you don't need
+  println("Julia Set No." + (i + 1) + ": C = " + C[0] + " + " + C[1] + "i, saved | " + (cArray.length - i - 1) + " of " + cArray.length + " left...");
+  i++;
   // Stop repeating the loop
-  noLoop();
+  if (i == cArray.length)
+  {
+    println("All Done!");
+    noLoop();
+  }
 }
