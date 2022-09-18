@@ -1,11 +1,11 @@
-/* MANDELBROT SET ----------------------------------------------------------
+/* JULIA SET ----------------------------------------------------------------
 
-In this example, we wil visualize the Mandelbrot set. The Mandelbrot set is
-the set of complex numbers C for which the function Fc ( z ) = z ^2 + c
-does not diverge to infinity when iterated from z = 0 , i.e., for which
-the sequence Fc( 0 ) , Fc ( Fc ( 0 ) ) , etc., remains bounded in absolute
-value. The resulting visual pattern is intricate and will remain unchanged
-even when you zoom in.
+In this example, we wil visualize an alternative to Mandelbrot set called the
+Julia set. The Julia set is simillar to Mandelbrot set but instead of adding
+C in a loop, we first start with z = z^2 + C where C is a range of complex
+numbers as usual and in the next iteration we switch to z = z^2 + C' where
+C' is a constant pre made. With different values to C', we get much more
+elaborate designs.
 Check out my blog post:
       https://asanka.hashnode.dev/08-mandelbrot-set-the-art-of-complex-numbers
       https://asanka-sovis.blogspot.com/2022/09/08-mandelbrot-set-art-of-complex-numbers.html
@@ -16,6 +16,7 @@ Coded by Asanka Akash Sovis
 // Defining global variables
 int maxIter = 100; // Maximum number of iterations
 float[] range = {-1.5, 1.5}; // Range to consider
+float[] C = {0.37, 0.1};
 
 void setup() {
   size(1000, 800); // Defining the size of the canvas
@@ -50,8 +51,8 @@ void draw() {
         float bb = 2 * a * b; // Imaginary part of zi^2
         
         // Adding the c constant to z^2
-        a = aa + ca; // New real part of z
-        b = bb + cb; // New imaginary part of z
+        a = aa + C[0]; // New real part of z
+        b = bb + C[1]; // New imaginary part of z
         
         // If the value of z tend towards infinity, we stop
         if (abs(aa + bb) > 64) {
@@ -79,7 +80,7 @@ void draw() {
     }
   }
   
-  saveFrame("Output\\mandelbrot_set.png"); // Saves the current frame. Comment if you don't need
+  saveFrame("Output\\julia_set.png"); // Saves the current frame. Comment if you don't need
   
   // Stop repeating the loop
   noLoop();
