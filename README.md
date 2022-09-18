@@ -2,7 +2,7 @@
  
 ## The Art of Complex Numbers
 
-The [Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set) is the set of complex numbers `C` for which the function `Fc(z) = z^2 + c` does not diverge to infinity when iterated from `z = 0 `, i.e., for which the sequence `Fc( 0 ) `, `Fc ( Fc ( 0 ) ) `, etc., remains bounded in absolute value. The resulting visual pattern is intricate and will remain unchanged even when you zoom in. This was first defined and drawn by Robert W. Brooks and Peter Matelski in 1978.
+The [Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set) is the set of complex numbers `C` for which the function `Fc(z) = z^2 + c` does not diverge to infinity when iterated from `z = 0 `, i.e., for which the sequence `Fc( 0 ) `, `Fc ( Fc ( 0 ) ) `, etc., remains bounded in absolute value. The resulting visual pattern is intricate and will remain unchanged even when you zoom in. This was first defined and drawn by Robert W. Brooks and Peter Matelski in 1978. It may look too complicated at first, but it is in fact quite simple if you consider the real and imaginary values separately as `a` and `b`.
 
 ![Mandelbrot Set](https://github.com/asankaSovis/08.-Mandelbrot-Set/blob/main/Output/mandelbrot_set.png)
 
