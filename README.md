@@ -1,4 +1,4 @@
-# 08. Mandelbrot Set
+# 08. Mandelbrot Set 🔢
  
 ## The Art of Complex Numbers
 
